@@ -48,7 +48,13 @@ Grayscale adalah nilai intensitas citra grayscale,
 
 
 
-## Source Code 
+## Source Code
+
+# Import library
+    import cv2 
+    import numpy as np 
+    import matplotlib.pyplot as plt             
+    import matplotlib.patches as patches 
 
     image = cv2.imread("plat.jpg") 
 
