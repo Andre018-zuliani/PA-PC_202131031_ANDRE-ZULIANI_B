@@ -140,7 +140,7 @@ disini saya membuat edges untuk mendeteksi tepi pada citra dalam skala abu-abu (
     axs[0, 0].imshow(image_rgb) 
     axs[0, 0].add_patch(patches.Polygon(vertices, closed=True, linewidth=2, edgecolor='lime', facecolor='none')) 
 
-lalu disni saya membuat gambarnya tampil di programnya menggunakan fig axes.
+lalu disini saya membuat gambarnya tampil di programnya menggunakan fig axes.
 
     axs[0, 0].set_title('Gambar Asli') 
     axs[0, 1].imshow(cropped_image) 
