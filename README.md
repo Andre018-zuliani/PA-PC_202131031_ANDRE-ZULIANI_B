@@ -92,11 +92,12 @@ Grayscale adalah nilai intensitas citra grayscale,
     plt.tight_layout() 
     plt.show() 
 
-## PENJELASAN SOURCE CODE
-    pip install opencv-python
-pertama-tama menginstall opencv-pyhton di cmd jupter notebooknya yang berfungsi untuk melakukan operasi pengolahan gambar dengan Python.
+## Langkah-Langkah penyelesaiannya
 
-# Import library
+    pip install opencv-python
+pertama-tama saya menginstall opencv-pyhton di cmd jupter notebooknya yang berfungsi untuk melakukan operasi pengolahan gambar dengan Python.
+
+### Import library
     
     import cv2 
     import numpy as np 
@@ -104,7 +105,8 @@ pertama-tama menginstall opencv-pyhton di cmd jupter notebooknya yang berfungsi 
     import matplotlib.patches as patches 
 
 selanjutnya kita akan mengimport cv2 dari file pyhton dan numpy untuk numerik serta matplotlib untuk ukuran dan perhitungan agar bisa diolah gambarnya.
-## Plat Terdeteksi, Binary Image, & Edges Image.
+
+### Plat Terdeteksi, Binary Image, & Edges Image.
 
     image = cv2.imread("plat.jpg") 
     image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB) 
@@ -120,15 +122,19 @@ selanjutnya saya disini membuat array berupa mask dan pemberian bitwise
     x, y, w, h = cv2.boundingRect(vertices)
 disini saya memberi tanda pada pada gambar yang akan dituju
 
+### cropped Image
+
     cropped_image = masked_image[y:y+h, x:x+w]
     gray = cv2.cvtColor(cropped_image, cv2.COLOR_RGB2GRAY)
 disni saya membuat gambarnya ke crop dari gambarnya dan agar terlihat dengan jelas platnya serta diberi warna RGB.
 
+### Binary 
     ret, binary = cv2.threshold(gray, 127, 255, cv2.THRESH_BINARY)
 selanjutnya saya memberi warna binary dengan threshold
 
+### Edges
     edges = cv2.Canny(gray, 170, 200)
-disini saya membuar edges untuk mendeteksi tepi pada citra dalam skala abu-abu (gray) menggunakan operator Canny.
+disini saya membuat edges untuk mendeteksi tepi pada citra dalam skala abu-abu (gray) menggunakan operator Canny.
 
     fig, axs = plt.subplots(2, 2, figsize=(10, 10))
     axs[0, 0].imshow(image_rgb) 
@@ -148,6 +154,7 @@ lalu saya membuat tampilan satu persatu dari gambar yang saya olah dari 'gambar 
     plt.tight_layout()  
     plt.show() 
 dan terakhir saya membuat gambarnya agar terlihat simetris dan rapih.
+
 ## Jurnal Yang terkait
 
 * [Link ke jurnal 1](https://ojs.unud.ac.id/index.php/merpati/article/download/17893/11623)
